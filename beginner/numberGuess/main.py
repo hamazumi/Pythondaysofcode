@@ -1,32 +1,50 @@
 from art import logo
-import random
-print(logo)
-print("Welcome to the guessing game! I'm thinking of a number between 1-100. ")
-random_number = random.randrange(1,100)
-turns = 0
-print(f"Hint, correctt number is {random_number}")
+from random import randint
 
-level = input("Choose 'easy' or 'hard':\n")
-if level == 'easy':
-  turns = 10
-else:
-  turns = 5
+#Set player turns to zero
+turns = 0 
 
-print(f"You have {turns} tries remaining to guess the #! ")
+#Function to check for answer
+def check(guess, number, turns):
+    if guess > number:
+        print("Too high")
+        return turns - 1
+    elif guess < number:
+        print("Too low")
+        return turns - 1
+    else:
+        print(f"Yes!, number is {number}!")
 
+#Function to set difficulty level
+def difficulty():
+    level = input("Choose 'easy' or 'hard':\n")
+    if level == 'easy':
+        return turns + 10
+    else:
+        return turns + 5
 
-while turns != 0:
-  guess = int(input("Make a guess: \n"))
-  if guess == random_number:
-    print("You Guessed it") 
-  elif guess > random_number:
-    turns -= 1
-    print("Guess Lower Number")
-    print(f"You have {turns} tries remaining to guess the #! ")
-  else:
-    turns -= 1
-    print("Guess Higher Number")
-    print(f"You have {turns} tries remaining to guess the #! ")
+def game():
+    print(logo)
+    print("Welcome to the guessing game! I'm thinking of a number between 1-100. ")
+    #Choosing a random number between 1-100
+    number = randint(1, 100)
+    print(f"Hint, correct number is {number}")
 
-if turns == 0:
-  print("Ran out of guesses, you lose")
+    turns = difficulty()
+    guess = 0
+
+    #Repeat the guessing functionality if they get it wrong.
+    while guess != number:
+        print(f"You have {turns} attempts remaining to guess the number.")
+        
+        #Let the user guess a number.
+        guess = int(input("Make a guess: "))
+
+        #Track the number of turns and reduce by 1 if they get it wrong.
+        turns = check(guess, number, turns)
+        if turns == 0:
+            print("You've run out of guesses, you lose.")
+            return
+        elif guess != number:
+            print("Guess again.")
+game()
