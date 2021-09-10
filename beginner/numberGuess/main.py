@@ -36,7 +36,7 @@ def game():
     #Repeat the guessing functionality if they get it wrong.
     while guess != number:
         print(f"You have {turns} attempts remaining to guess the number.")
-        
+
         #Let the user guess a number.
         guess = int(input("Make a guess: "))
 
