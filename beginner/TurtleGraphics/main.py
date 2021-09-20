@@ -1,15 +1,16 @@
-import main2
+# import main2
 
-print(main2.main2)
+# print(main2.main2)
 
-from turtle import Turtle, Screen
+# from turtle import Turtle, Screen
 
-timmy = Turtle()
-print(timmy)
-timmy.shape("turtle")
-timmy.color("green")
-timmy.forward(100)
+# timmy = Turtle()
+# print(timmy)
+# timmy.shape("turtle")
+# timmy.color("green")
+# timmy.forward(100)
 
-my_screen = Screen()
-print(my_screen.canvheight)
-my_screen.exitonclick()
+# my_screen = Screen()
+# print(my_screen.canvheight)
+# my_screen.exitonclick()
+
