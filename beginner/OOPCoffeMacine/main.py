@@ -10,7 +10,7 @@ is_on = True
 
 while is_on:
     options = menu.get_items()
-    choice = input(f"What would you like? ({options}): ")
+    choice = input(f"Pick a drink? ({options}): ")
     if choice == "off":
         is_on = False
     elif choice == "report":
